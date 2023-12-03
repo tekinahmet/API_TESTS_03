@@ -19,10 +19,10 @@ public class RequestResponse {
                 then: used for output(assertion)
                 and: used for multiple usage of keywords
         c. start to type automation script
-                set the url
-                set expected data
-                send request and get response
-                do assertion
+//      SET THE URL
+//      SET THE EXPECTED DATA
+//      SEND REQUEST AND GET RESPONSE
+//      DO ASSERTION
      */
 
 
