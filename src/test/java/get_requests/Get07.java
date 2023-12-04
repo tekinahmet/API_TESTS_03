@@ -67,20 +67,21 @@ public class Get07 extends PetStoreBaseURL {
 
         //Jsonpath
         JsonPath jsonPath = response.jsonPath();
+        assertEquals(200, response.statusCode());
+        assertEquals(ContentType.JSON +"", response.contentType());//+"" to convert it to string, concatenate it, enum
         assertEquals("Bird", jsonPath.getString("category.name"));
         assertEquals("Tweety", jsonPath.getString("name"));
         assertEquals("available", jsonPath.getString("status"));
 
-        //SoftAssert--testNG
+        //softAssert object -- testng
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertEquals(jsonPath.getString("category.name"), "Bird");
         softAssert.assertEquals(jsonPath.getString("name"), "Tweety");
         softAssert.assertEquals(jsonPath.getString("status"), "available");
 
+        //do not forget assertAll()
         softAssert.assertAll();
-
-
 
     }
 }
