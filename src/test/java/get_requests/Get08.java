@@ -3,15 +3,14 @@ package get_requests;
 import base_urls.JsonPLaceHolderBaseURL;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import jdk.security.jarsigner.JarSigner;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.*;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Get08 extends JsonPLaceHolderBaseURL {
     /*
@@ -40,6 +39,9 @@ public class Get08 extends JsonPLaceHolderBaseURL {
 //        response.prettyPrint();//in list[]
 
 //      DO ASSERTION
+
+//2.Print all ids greater than 190 on the console
+
         //1st way to assert statusCode()
         response
                 .then()
@@ -50,6 +52,7 @@ public class Get08 extends JsonPLaceHolderBaseURL {
         JsonPath jsonPath = response.jsonPath();
 
         //1st way : by using for each loop
+
 //        Print all ids greater than 190 on the console
         List<Integer> idList= jsonPath.getList("id");//to get ids in list
         //System.out.println("idList = " + idList);
@@ -61,26 +64,52 @@ public class Get08 extends JsonPLaceHolderBaseURL {
             }
         }
         System.out.println("idsGreaterThan190 = " + idsGreaterThan190);//idsGreaterThan190 = [191, 192, 193, 194, 195, 196, 197, 198, 199, 200]
-//        Assert that there are 10 ids greater than 190
+//Assert that there are 10 ids greater than 190
         assertEquals(10, idsGreaterThan190.size());
 
-        //2nd way: by using GROOVY LANGUAGE (recommended) to filter the data
-        System.out.println("\njsonPath.getList(\"id\") = " + jsonPath.getList("id"));
-        System.out.println("\njsonPath.getList(\"title\") = " + jsonPath.getList("title"));
+        //2nd way: by using GROOVY LANGUAGE (recommended) to filter the data if we have a list with json
+
+        System.out.println("jsonPath.getList(\"id\") = " + jsonPath.getList("id"));
+        System.out.println("jsonPath.getList(\"title\") = " + jsonPath.getList("title"));
 
         //findAll{it.id>190} to get the list by filtering with id
-        System.out.println("\ngroovy language to get the list whose ids are greater than190\n " + jsonPath.getList("findAll{it.id>190}"));
+//        System.out.println("\ngroovy language to get the list whose ids are greater than 190\n " + jsonPath.getList("findAll{it.id>190}"));
+        List<Object> getListByUsingGroovy = jsonPath.getList("findAll{it.id>190}");
+        System.out.println("getListByUsingGroovy = " + getListByUsingGroovy);
+
+//Assert that there are 10 ids greater than 190
+        assertEquals(10, getListByUsingGroovy.size());
 
         //findAll{it.id>190}.id-->just add .id to get just the ids
-        System.out.println("\ngroovy language to get the ids greater than190\n " + jsonPath.getList("findAll{it.id>190}.id"));
+//        System.out.println("\ngroovy language to get the ids greater than 190\n " + jsonPath.getList("findAll{it.id>190}.id"));
+        List<Integer> getIdsByUsingGroovy= jsonPath.getList("findAll{it.id>190}.id");
+        System.out.println("getIdsByUsingGroovy = " + getIdsByUsingGroovy);
+        assertEquals(10, getIdsByUsingGroovy.size());
 
-        //findAll{it.id>190}.title-->just add .title to get just the titles
-        System.out.println("\ngroovy language to get title in the list whose the ids greater than190\n " + jsonPath.getList("findAll{it.id>190}.title"));
+//3.Print all userIds whose ids are less than 5 on the console
 
         //findAll{it.id>190}.userId-->just add .userId to get just the userIds
-        System.out.println("\ngroovy language to get the userIds in the list whose the ids greater than190\n " + jsonPath.getList("findAll{it.id>190}.userId"));
+//        System.out.println("\ngroovy language to get the userIds in the list whose the ids greater than 190\n " + jsonPath.getList("findAll{it.id>190}.userId"));
+        List<String> getUserIdUsingGroovy = jsonPath.getList("findAll{it.id<5}.userId");
+        System.out.println("getUserIdUsingGroovy = " + getUserIdUsingGroovy);
+
+//Assert that number of userIds whose ids are less than 5 is 4
+        assertEquals(4, getUserIdUsingGroovy.size());
 
         //findAll{it.id>190}.userId-->just add .completed to get just the completeds
-        System.out.println("\ngroovy language to get the completeds in the list whose the ids greater than190\n " + jsonPath.getList("findAll{it.id>190}.completed"));
+//        System.out.println("\ngroovy language to get the completeds in the list whose the ids greater than 190\n " + jsonPath.getList("findAll{it.id>190}.completed"));
+        List<String> getCompletedUsingGroovy = jsonPath.getList("findAll{it.id>190}.completed");
+        System.out.println("getCompletedUsingGroovy = " + getCompletedUsingGroovy);
+        assertEquals(10, getCompletedUsingGroovy.size());
+
+//4.Print all titles whose ids are less than 5
+        //findAll{it.id<5}.title-->just add .title to get just the titles
+//        System.out.println("\ngroovy language to get title in the list whose the ids greater than 190\n " + jsonPath.getList("findAll{it.id>190}.title"));
+        List<String> getTitleByUsingGroovy =jsonPath.getList("findAll{it.id<5}.title");
+        System.out.println("getTitleByUsingGroovy = " + getTitleByUsingGroovy);
+
+//Assert that "delectus aut autem" is one of the titles whose ids is less than 5
+        assertTrue(getTitleByUsingGroovy.contains("delectus aut autem"));
+
     }
 }
