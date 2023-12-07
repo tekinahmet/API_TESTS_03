@@ -1,6 +1,5 @@
 package get_requests;
 
-import base_urls.HerokuAppBaseURL;
 import base_urls.PetStoreBaseURL;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -12,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
-public class Get07 extends PetStoreBaseURL {
+public class Get07_SoftAssertion_testNG extends PetStoreBaseURL {
      /*
     Given
         https://petstore.swagger.io/v2/pet/1986

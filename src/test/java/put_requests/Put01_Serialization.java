@@ -1,9 +1,8 @@
 package put_requests;
 
-import base_urls.JsonPLaceHolderBaseURL;
+import base_urls.JSonPLaceHolderBaseURL;
 import io.restassured.response.Response;
 import org.junit.Test;
-import test_data.JSonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +11,7 @@ import static io.restassured.RestAssured.*;
 import static org.junit.Assert.*;
 import static test_data.JSonPlaceHolderTestData.expectedDataMap;
 
-public class Put01 extends JsonPLaceHolderBaseURL {
+public class Put01_Serialization extends JSonPLaceHolderBaseURL {
     /*
         Given
             https://jsonplaceholder.typicode.com/todos

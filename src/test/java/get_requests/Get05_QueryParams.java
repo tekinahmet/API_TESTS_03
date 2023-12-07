@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
 
-public class Get05 extends HerokuAppBaseURL {
+public class Get05_QueryParams extends HerokuAppBaseURL {
     @Test
     public void get05(){
 //      SET THE URL

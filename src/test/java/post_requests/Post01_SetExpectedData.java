@@ -1,6 +1,6 @@
 package post_requests;
 
-import base_urls.JsonPLaceHolderBaseURL;
+import base_urls.JSonPLaceHolderBaseURL;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
-public class Post01 extends JsonPLaceHolderBaseURL {
+public class Post01_SetExpectedData extends JSonPLaceHolderBaseURL {
     /*
         Given
             https://jsonplaceholder.typicode.com/todos

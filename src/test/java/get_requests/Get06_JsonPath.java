@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
 
-public class Get06 extends HerokuAppBaseURL {
+public class Get06_JsonPath extends HerokuAppBaseURL {
     /*
     Given
         https://restful-booker.herokuapp.com/booking/2243

@@ -7,7 +7,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Get03 {
+public class Get03_SoftAssertion {
    /*
         "userId": 2,
             "id": 23,

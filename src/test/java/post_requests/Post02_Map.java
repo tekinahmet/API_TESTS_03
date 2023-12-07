@@ -1,6 +1,6 @@
 package post_requests;
 
-import base_urls.JsonPLaceHolderBaseURL;
+import base_urls.JSonPLaceHolderBaseURL;
 import io.restassured.response.Response;
 import org.junit.Test;
 import test_data.JSonPlaceHolderTestData;
@@ -11,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.*;
 
-public class Post02 extends JsonPLaceHolderBaseURL {
+public class Post02_Map extends JSonPLaceHolderBaseURL {
         /*
         Given
             https://jsonplaceholder.typicode.com/todos

@@ -6,7 +6,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
-public class Get02 {
+public class Get02_Assertion {
     /*
          Given
              https://restful-booker.herokuapp.com/booking/10

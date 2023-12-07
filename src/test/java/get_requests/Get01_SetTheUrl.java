@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class Get01 {
+public class Get01_SetTheUrl {
     /*
          Given
              https://restful-booker.herokuapp.com/booking/10
