@@ -1,5 +1,8 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class JsonPlaceHolderPojo {
     //create private fields
     private Integer userId;
@@ -7,6 +10,7 @@ public class JsonPlaceHolderPojo {
     private Boolean completed;
 
     //create default and parameterized constructors
+    //every class has a default constructor in java
     public JsonPlaceHolderPojo() {
     }
     public JsonPlaceHolderPojo(Integer userId, String title, Boolean completed) {
