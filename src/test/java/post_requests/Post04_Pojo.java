@@ -8,6 +8,7 @@ import pojos.JsonPlaceHolderPojo;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class Post04_Pojo extends JSonPLaceHolderBaseURL {
      /*
@@ -46,6 +47,12 @@ public class Post04_Pojo extends JSonPLaceHolderBaseURL {
         response.prettyPrint();
 
 //      DO ASSERTION
+        JsonPlaceHolderPojo actualData = response.as(JsonPlaceHolderPojo.class);
+        System.out.println("actualData = " + actualData);
 
+        assertEquals(201, response.statusCode());
+        assertEquals(expectedData.getUserId(), actualData.getUserId());
+        assertEquals(expectedData.getTitle(), actualData.getTitle());
+        assertEquals(expectedData.getCompleted(), actualData.getCompleted());
     }
 }
