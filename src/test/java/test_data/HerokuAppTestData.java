@@ -16,12 +16,30 @@ public class HerokuAppTestData {
         //inner map
         //outer map
         Map<String, Object> expectedData = new HashMap<>();
-        expectedData.put("firstname", firstname);
-        expectedData.put("lastname", lastname);
-        expectedData.put("totalprice", totalprice);
-        expectedData.put("depositpaid", depositpaid);
-        expectedData.put("additionalneeds", additionalneeds);
-        expectedData.put("bookingdates", bookingdates);
+        if (firstname != null) {
+            expectedData.put("firstname", firstname);
+        }
+        if (lastname != null) {
+            expectedData.put("lastname", lastname);
+        }
+        if (totalprice != null) {
+            expectedData.put("totalprice", totalprice);
+        }
+        if (depositpaid != null) {
+            expectedData.put("depositpaid", depositpaid);
+        }
+        if (bookingdates != null) {
+            expectedData.put("bookingdates", bookingdates);
+        }
+        if (additionalneeds != null) {
+            expectedData.put("additionalneeds", additionalneeds);
+        }
+//        expectedData.put("firstname", firstname);
+//        expectedData.put("lastname", lastname);
+//        expectedData.put("totalprice", totalprice);
+//        expectedData.put("depositpaid", depositpaid);
+//        expectedData.put("additionalneeds", additionalneeds);
+//        expectedData.put("bookingdates", bookingdates);
         return expectedData;
     }
 }
